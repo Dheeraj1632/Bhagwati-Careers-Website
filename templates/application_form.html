@@ -1,34 +1,147 @@
-<h4>Application Form</h4>
-<form action="/job/{{job['id']}}/apply" method="post">
-  <div class="mb-2">
-  <label>Full Name</label><br>
-  <input type="text" required name="full_name" placeholder="Jatin Soni">
-  </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0f7fa, #80deea);
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .form-container {
+            background: linear-gradient(135deg, #ffffff, #f1f1f1);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 800px;
+            margin: 50px auto;
+            position: relative;
+            z-index: 1;
+            border: 1px solid #ddd;
+        }
+        .form-header {
+            margin-bottom: 30px;
+            text-align: center;
+            color: #007bff;
+            font-size: 2.5rem;
+            font-weight: 700;
+            position: relative;
+        }
+        .form-header::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #007bff;
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 5px;
+        }
+        .form-group label {
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 5px;
+        }
+        .form-control {
+            border-radius: 12px;
+            border: 1px solid #ced4da;
+            padding: 15px;
+            font-size: 1rem;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .form-control:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+        }
+        .form-group textarea {
+            border-radius: 12px;
+            border: 1px solid #ced4da;
+            padding: 15px;
+            font-size: 1rem;
+            resize: vertical;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+        .form-group textarea:focus {
+            border-color: #007bff;
+            box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+        }
+        .btn-custom {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            border: none;
+            border-radius: 12px;
+            padding: 15px;
+            color: #ffffff;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .btn-custom:hover {
+            background: linear-gradient(135deg, #0056b3, #003d79);
+            transform: translateY(-2px);
+        }
+        .btn-custom:focus {
+            box-shadow: 0 0 0 0.2rem rgba(38, 143, 255, 0.25);
+        }
+        .form-footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="form-container mx-auto">
+            <h4 class="form-header">Application Form</h4>
+            <form action="/job/{{job['id']}}/apply" method="post">
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" class="form-control" id="fullName" required name="full_name" placeholder="Dheeraj Jangid">
+                </div>
 
-  <div class="mb-2">
-  <label>Email</label><br>
-  <input type="email" required name="email" placeholder="jatine@soni.com">
-  </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" required name="email" placeholder="dheeraje@jangid.com">
+                </div>
 
-  <div class="mb-2">
-  <label>LinkedIn URL</label><br>
-  <input type="url" name="linkedin_url" placeholder="https://linked.com/in/jatinsoni">
-  </div>
+                <div class="form-group">
+                    <label for="linkedinUrl">LinkedIn URL</label>
+                    <input type="url" class="form-control" id="linkedinUrl" name="linkedin_url" placeholder="https://linkedin.com/in/dheeraj">
+                </div>
 
-  <div class="mb-2">
-    <label>Education</label><br>
-    <textarea name="education"></textarea>
-  </div>
+                <div class="form-group">
+                    <label for="education">Education</label>
+                    <textarea class="form-control" id="education" name="education" rows="4" placeholder="Your educational background..."></textarea>
+                </div>
 
-  <div class="mb-2">
-    <label>Work Experience</label><br>
-    <textarea name="work_experience"></textarea>
-  </div>
+                <div class="form-group">
+                    <label for="workExperience">Work Experience</label>
+                    <textarea class="form-control" id="workExperience" name="work_experience" rows="4" placeholder="Your work experience..."></textarea>
+                </div>
 
-  <div class="mb-2">
-  <label>Resume URL</label><br>
-  <input type="url" name="resume_url">
-  </div>
+                <div class="form-group">
+                    <label for="resumeUrl">Resume URL</label>
+                    <input type="url" class="form-control" id="resumeUrl" name="resume_url" placeholder="https://example.com/your-resume">
+                </div>
 
-  <input type="submit" >
-</form>
+                <button type="submit" class="btn btn-custom btn-block">Submit</button>
+            </form>
+            <div class="form-footer">
+                <p>Thank you for your interest in joining our team!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

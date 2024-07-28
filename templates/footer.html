@@ -1,10 +1,44 @@
-<div class="container">
-  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-    <p class="text-center text-muted">&copy; 2024 Haribaksh, Inc</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Footer Example</title>
+    <style>
+        .footer {
+            background-color: #ffffff; /* White background for footer */
+            color: #333333; /* Dark text for contrast */
+            padding: 20px; /* Add padding */
+            text-align: center; /* Center-align text */
+            border-top: 1px solid #e0e0e0; /* Light top border for separation */
+            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1); /* Soft shadow at the top */
+        }
 
-    <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
-    </a>
-    </ul>
-  </footer>
-</div>
+        .footer a {
+            color: #0056b3; /* Primary color for links */
+            text-decoration: none; /* Remove underline */
+        }
+
+        .footer a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+
+        .footer svg {
+            fill: #0056b3; /* Primary color for SVG icon */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <footer class="footer">
+            <p class="text-center text-muted">&copy; 2024 Bhagwati, Inc</p>
+
+            <a href="/" class="d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+                <svg class="bi me-2" width="40" height="32">
+                    <use xlink:href="#bootstrap"/>
+                </svg>
+            </a>
+        </footer>
+    </div>
+</body>
+</html>

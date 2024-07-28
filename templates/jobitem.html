@@ -1,19 +1,92 @@
-<div class="border-bottom row" style="margin-bottom:16px;padding-bottom:8px;">
-<div class="col-10">
-  <h4 
-    style="color:rgb(120, 120, 120); margin-bottom:4px;">
-    {{job['title']}}</h4>
-  <div>
-    <b>Location:</b>{{job['location']}}
-  </div>
-  {% if 'salary' in job %}
-  <div>
-    <b>Salary:</b>{{job['salary']}}
-  </div>
-  {% endif %}
-</div>
-  <div class="col-2">
-    <a href="/job/{{job['id']}}" type="button" class="btn btn-outline-dark">Apply</a>
-  </div>
-  
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Job Item</title>
+    <style>
+        body {
+            background-color: #f4f7f6; /* Light background color for the page */
+            font-family: 'Arial', sans-serif; /* Default font family */
+        }
+
+        .job-item {
+            background-color: #ffffff; /* White background for the card */
+            border: 1px solid #ddd; /* Light border for separation */
+            border-radius: 12px; /* Slightly more rounded corners */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+            padding: 20px; /* Increased padding inside the card */
+            margin-bottom: 20px; /* More space between cards */
+            transition: box-shadow 0.3s ease, transform 0.3s ease; /* Smooth transition for hover effects */
+        }
+
+        .job-item:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow on hover */
+            transform: translateY(-5px); /* Slightly lift card on hover */
+        }
+
+        .job-title {
+            color: #007bff; /* Primary color for job title */
+            font-size: 1.5rem; /* Larger font size for the title */
+            font-weight: 700; /* Bold font weight */
+            margin-bottom: 10px; /* Space below the title */
+        }
+
+        .job-info {
+            color: #555; /* Darker color for job info */
+            font-size: 1rem; /* Font size for info */
+            margin-bottom: 10px; /* Space below info */
+        }
+
+        .btn-apply {
+            background-color: #007bff; /* Primary button color */
+            color: #ffffff; /* White text */
+            border: none; /* Remove border */
+            border-radius: 6px; /* Rounded corners */
+            padding: 10px 20px; /* Padding inside button */
+            text-decoration: none; /* Remove underline */
+            font-weight: 600; /* Bold text */
+            display: inline-block; /* Make sure the button aligns properly */
+            transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transition */
+        }
+
+        .btn-apply:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+            color: #ffffff; /* White text on hover */
+            transform: translateY(-2px); /* Slightly lift button on hover */
+        }
+
+        @media (max-width: 768px) {
+            .job-item {
+                padding: 15px; /* Reduced padding on smaller screens */
+            }
+
+            .btn-apply {
+                padding: 8px 16px; /* Adjusted padding for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="job-item">
+            <div class="row">
+                <div class="col-md-10">
+                    <h4 class="job-title">{{job['title']}}</h4>
+                    <div class="job-info">
+                        <b>Location:</b> {{job['location']}}
+                    </div>
+                    {% if 'salary' in job %}
+                    <div class="job-info">
+                        <b>Salary:</b> {{job['salary']}}
+                    </div>
+                    {% endif %}
+                </div>
+                <div class="col-md-2 d-flex align-items-center justify-content-center">
+                    <a href="/job/{{job['id']}}" class="btn-apply">Apply</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

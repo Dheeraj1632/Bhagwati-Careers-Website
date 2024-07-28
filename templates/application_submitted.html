@@ -1,33 +1,80 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Applicatiion Submitted</title>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Application Submitted</title>
     {% include 'bootstrap.html' %}
-  </head>
-  <body>
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0f7fa, #80deea); /* Background to match the theme */
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background-color: #ffffff; /* White background for content */
+            border-radius: 15px; /* Rounded corners */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+            padding: 40px; /* Padding inside container */
+            margin-top: 40px; /* Space above container */
+            margin-bottom: 40px; /* Space below container */
+        }
+        .heading {
+            color: #0056b3; /* Primary color for headings */
+            margin-bottom: 20px; /* Space below headings */
+        }
+        .application-details {
+            margin-top: 20px; /* Space above the details section */
+        }
+        .application-details b {
+            color: #333; /* Darker color for labels */
+            font-weight: 600; /* Bold text for labels */
+        }
+        .application-details .mb-2 {
+            margin-bottom: 12px; /* Space between detail items */
+            padding: 10px;
+            border-radius: 8px; /* Rounded corners for detail boxes */
+            background-color: #f7f7f7; /* Light background for detail boxes */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for detail boxes */
+        }
+        .btn-primary {
+            background-color: #0056b3; /* Primary button color */
+            border: none; /* Remove border */
+            border-radius: 5px; /* Rounded corners */
+            padding: 12px 24px; /* Padding inside button */
+            color: #ffffff; /* White text */
+            font-weight: 600; /* Bold text */
+            text-decoration: none; /* Remove underline */
+        }
+        .btn-primary:hover {
+            background-color: #004494; /* Darker shade on hover */
+        }
+    </style>
+</head>
+<body>
     {% include 'nav.html' %}
     {% include 'banner.html' %}
-    <div class= "container">
-       <h1 class="text-center mt-2 mb-4"> Haribaksh careers</h1>
-      <p>Your application for the role of {{job['title']}} at Haribaksh has been submitted.</p>
-    <b>Full Name</b>
-    <div class="mb-2">{{application['full_name']}}</div>
+    
+    <div class="container">
+        <h1 class="text-center heading">Application Submitted</h1>
+        <p class="text-center">Your application for the role of <strong>{{job['title']}}</strong> at Haribaksh has been submitted successfully.</p>
+        
+        <div class="application-details">
+            <div class="mb-2"><b>Full Name:</b> {{application['full_name']}}</div>
+            <div class="mb-2"><b>Email:</b> {{application['email']}}</div>
+            <div class="mb-2"><b>LinkedIn URL:</b> {{application['linkedin_url']}}</div>
+            <div class="mb-2"><b>Education:</b> {{application['education']}}</div>
+            <div class="mb-2"><b>Work Experience:</b> {{application['work_experience']}}</div>
+            <div class="mb-2"><b>Resume URL:</b> {{application['resume_url']}}</div>
+        </div>
 
-    <b>Email</b>
-    <div class="mb-2">{{application['email']}}</div>
-    
-    <b>LinkedIn URL</b>
-    <div class="mb-2">{{application['linkedin_url']}}</div>
-    
-    <b>Education</b>
-    <div class="mb-2">{{application['education']}}</div>
-    
-    <b>Work Experience</b>
-    <div class="mb-2">{{application['work_experience']}}</div>
-    
-    <b>Resume URL</b>
-    <div class="mb-2">{{application['resume_url']}}</div>
+        <div class="text-center mt-4">
+            <a href="/" class="btn-primary">Back to Home</a>
+        </div>
     </div>
+    
     {% include 'footer.html' %}
-  </body>
+</body>
 </html>

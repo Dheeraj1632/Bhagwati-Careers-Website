@@ -1,31 +1,82 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>{{job.title}} - Harubaksh Careers </title>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{job.title}} - Bhagwati Careers</title>
     {% include 'bootstrap.html' %}
-  </head>
-  <body>
+    <style>
+        body {
+            background: linear-gradient(135deg, #e0f7fa, #80deea); /* Matching gradient background */
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            position: relative;
+            z-index: 1;
+        }
+        h1, h3, h4 {
+            color: #0056b3; /* Consistent color for headings */
+        }
+        .lead {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            color: #555;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        .footer {
+            background-color: #ffffff; /* Match footer with the page background */
+            color: #333333;
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+            box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+        }
+        .footer a {
+            color: #0056b3; /* Primary color for links */
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
     {% include 'nav.html' %}
-    {% include 'banner.html'%}
-    <div class= "container">
-       <h1 class="text-center mt-2 mb-4"> Haribaksh careers</h1>
-    <h3 class="mb-2">{{job.title}}</h3>
-    <p class="lead mt-0">{{job.location}}</p>
-    <h4>Responsibilities</h4>
-      <ul>
-        {% for line in job.responsibilities.split("\n") %}
-        <li>{{line}}</li>
-        {% endfor %}
-      </ul>
-      <h4>Requirements</h4>
-    <p>{{job.requirements}}</p>
-      <h4>Salary</h4>
-      <p>{{job.currency}}{{job.salary}}</p>
-   
-  
-    {% include 'application_form.html' %}
-    
-      </div>
-     {% include 'footer.html' %}
-  </body>
+    {% include 'banner.html' %}
+
+    <div class="container">
+        <h1 class="text-center mt-2 mb-4">Job Details</h1>
+        <h3 class="mb-2">{{job.title}}</h3>
+        <p class="lead mt-0">{{job.location}}</p>
+
+        <h4 class="mt-4">Responsibilities</h4>
+        <ul>
+            {% for line in job.responsibilities.split("\n") %}
+            <li>{{line}}</li>
+            {% endfor %}
+        </ul>
+
+        <h4 class="mt-4">Requirements</h4>
+        <p>{{job.requirements}}</p>
+
+        <h4 class="mt-4">Salary</h4>
+        <p>{{job.currency}}{{job.salary}}</p>
+
+        {% include 'application_form.html' %}
+    </div>
+
+    {% include 'footer.html' %}
+</body>
 </html>
