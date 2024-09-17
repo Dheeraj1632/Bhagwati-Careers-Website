@@ -71,3 +71,49 @@ def add_application_to_db(job_id, data):
 
     connection.commit()
     connection.close()
+
+def get_user_by_username(username):
+    connection = pymysql.connect(
+        charset="utf8mb4",
+        connect_timeout=10,
+        cursorclass=pymysql.cursors.DictCursor,
+        db="defaultdb",
+        host="mysql-3337c7c9-dheerajjangir63-3fe9.g.aivencloud.com",
+        password=my_secret,
+        read_timeout=10,
+        port=25975,
+        user="avnadmin",
+        write_timeout=10,
+    )
+
+    with connection.cursor() as cursor:
+        cursor.execute("SELECT * FROM users WHERE username = %s", (username,))
+        user = cursor.fetchone()
+
+    connection.close()
+
+    if user:
+        return dict(user)
+    else:
+        return None
+
+def add_user_to_db(username, password_hash):
+    connection = pymysql.connect(
+        charset="utf8mb4",
+        connect_timeout=10,
+        cursorclass=pymysql.cursors.DictCursor,
+        db="defaultdb",
+        host="mysql-3337c7c9-dheerajjangir63-3fe9.g.aivencloud.com",
+        password=my_secret,
+        read_timeout=10,
+        port=25975,
+        user="avnadmin",
+        write_timeout=10,
+    )
+
+    with connection.cursor() as cursor:
+        query = "INSERT INTO users (username, password_hash) VALUES (%s, %s)"
+        cursor.execute(query, (username, password_hash))
+
+    connection.commit()
+    connection.close()
